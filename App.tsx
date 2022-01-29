@@ -9,26 +9,8 @@
  */
 
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MainScreen from './src/screens/mainScreen';
-import CountriesListScreen from './src/screens/countriesListScreen';
+import AppContainer from './src/app/container';
 
-const Stack = createNativeStackNavigator();
-
-const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Main"
-          component={MainScreen}
-          options={{title: 'Overview'}}
-        />
-        <Stack.Screen name="CountriesList" component={CountriesListScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+const App = () => <AppContainer />;
 
 export default App;
