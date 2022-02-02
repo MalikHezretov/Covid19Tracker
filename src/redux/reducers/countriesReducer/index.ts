@@ -1,6 +1,7 @@
 import {Action, ActionType} from '../../actionTypes';
 
 export interface Country {
+  ID: string;
   Country: string;
   CountryCode: string;
   Slug: string;
@@ -31,27 +32,27 @@ export interface Summary {
 }
 
 interface State {
-  summary?: Summary;
+  covidSummary?: Summary;
   loading: boolean;
   error: string | null;
 }
 
 const initialState = {
-  summary: undefined,
+  covidSummary: undefined,
   loading: false,
   error: null,
 };
 
 export const countriesReducer = (
   state: State = initialState,
-  action: Action,
+  action: Action
 ): State => {
   switch (action.type) {
     case ActionType.GET_COUNTRIES_SUMMARY_SUCCESS:
       return {
         ...state,
         loading: false,
-        summary: action.payload,
+        covidSummary: action.payload,
       };
 
     default:
